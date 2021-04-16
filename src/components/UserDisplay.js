@@ -13,7 +13,6 @@ export const UserDisplay = ({ users, handleToggleEdit }) => {
             <UserDisplayCard user={user} key={`customer-${user.id}`} handleToggleEdit={() => handleToggleEdit(index)} />
           )
         }
-
       </Box>
     </div>
   )

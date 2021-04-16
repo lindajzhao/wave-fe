@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Grommet, Main } from 'grommet'
+import { Grommet, Main, Header, Heading } from 'grommet'
 import { UserDisplay, UserEditForm } from './components'
 
 const App = () => {
@@ -43,6 +43,9 @@ const App = () => {
 
   return (
     <Grommet full>
+      <Header>
+        <Heading level={1}>Wave FE Challenge</Heading>
+      </Header>
       <Main pad="medium">
         <UserDisplay users={users} handleToggleEdit={handleToggleEdit}/>
         {

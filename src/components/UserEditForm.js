@@ -3,7 +3,7 @@ import { Heading, Form, FormField, TextInput, Select, Button } from 'grommet'
 
 export const UserEditForm = ({ user, handleEditSubmit, handleCancelEdit }) => {
     const [formValues, setFormValues] = useState(user);
-    console.log(user)
+
     return (
         <div>
         <Heading level={2}>
@@ -22,14 +22,18 @@ export const UserEditForm = ({ user, handleEditSubmit, handleCancelEdit }) => {
           <FormField label="email" htmlFor="user-edit-email">
             <TextInput name="email" id="user-edit-email"/>
           </FormField>
-          <FormField label="Channel">
-            <Select options={["Website","Email","Phone","Word of mouth","Other"]} placeholder="Choose an option" />
+          <FormField label="Channel" name="channel">
+            <Select 
+              options={["website","email","phone","word-of-mouth","other"]} 
+              placeholder="Choose an option" 
+              name="channel"
+            />
           </FormField>
           <FormField label="Address" htmlFor="user-edit-address">
             <TextInput name="address" id="user-edit-address" />
           </FormField>
           <FormField label="Postal Code" htmlFor="user-edit-postalCode">
-            <TextInput name="postalCode" id="user-edit-postalCode"/>
+            <TextInput name="postal" id="user-edit-postalCode"/>
           </FormField>
           <FormField label="City" htmlFor="user-edit-city">
             <TextInput name="city" id="user-edit-city"/>
