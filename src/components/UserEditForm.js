@@ -1,22 +1,20 @@
 import { useState } from 'react'
-import { Box, Nav, Heading, Form, FormField, TextInput, Select, Button } from 'grommet'
+import { Heading, Form, FormField, TextInput, Select, Button } from 'grommet'
 
-export const UserEditForm = ({ user, handleEditSubmit }) => {
+export const UserEditForm = ({ user, handleEditSubmit, handleCancelEdit }) => {
     const [formValues, setFormValues] = useState(user);
     console.log(user)
     return (
-        <>
-         <Box fill="vertical" overflow="auto" align="center" flex="grow">
-        <Nav align="center" flex={false}>
-          <Heading level={2}>
-            Edit Customer
-          </Heading>
-        </Nav>
+        <div>
+        <Heading level={2}>
+        Edit Customer
+        </Heading>
         <Form 
             name="editUser" 
             value={formValues} 
             onChange={nextValue => setFormValues(nextValue)}
             onSubmit={() => handleEditSubmit(formValues)}
+            onReset={handleCancelEdit}
         >
           <FormField label="Name" htmlFor="user-edit-name">
             <TextInput name="name" id="user-edit-name"/>
@@ -40,8 +38,8 @@ export const UserEditForm = ({ user, handleEditSubmit }) => {
             <TextInput name="province" size="small" id="user-edit-province" />
           </FormField>
           <Button label="Submit Changes" size="small" type="submit"></Button>
+          <Button label="Cancel" size="small" type="reset"></Button>
         </Form>
-      </Box>
-      </>
+      </div>
     )
 }

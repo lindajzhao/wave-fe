@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Grommet } from 'grommet'
+import { Grommet, Main } from 'grommet'
 import { UserDisplay, UserEditForm } from './components'
 
 const App = () => {
   const [users, setUsers] = useState([])
+  const [userToEdit, setUserToEdit] = useState(null)
   const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
@@ -24,23 +25,30 @@ const App = () => {
     console.log("Saved with value", newUserValues)
     // send object to edit endpoint
     setShowForm(false)
+    let newUserArray = users;
+    newUserArray[userToEdit] = newUserValues;
+
+    setUsers(newUserArray)
   }
 
-  const handleToggleEdit = (userToEdit) => {
-    console.log(userToEdit)
+  const handleToggleEdit = (userIndex) => {
+    setUserToEdit(userIndex)
+    setShowForm(true)
+  }
+
+  const handleCancelEdit = () => {
+    setUserToEdit(null)
+    setShowForm(false)
   }
 
   return (
     <Grommet full>
-      <>
-        <div>
-        <button onClick={() => setShowForm(true)}>show</button>
-        </div>
+      <Main pad="medium">
         <UserDisplay users={users} handleToggleEdit={handleToggleEdit}/>
         {
-          showForm && <UserEditForm user={users[0]} handleEditSubmit={handleEditSubmit} />
+          showForm && <UserEditForm user={users[userToEdit]} handleEditSubmit={handleEditSubmit} handleCancelEdit={handleCancelEdit} />
         }
-      </>
+      </Main>
     </Grommet>
   )
 }
