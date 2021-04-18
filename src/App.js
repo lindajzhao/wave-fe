@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Grommet, Main, Header, Heading } from 'grommet'
+import { Grommet, Main, Heading, Box } from 'grommet'
 import { UserDisplay, UserEditForm } from './components'
 
 const App = () => {
@@ -43,13 +43,14 @@ const App = () => {
 
   return (
     <Grommet full>
-      <Header>
-        <Heading level={1}>Wave FE Challenge</Heading>
-      </Header>
+      <Box as="header" pad="medium">
+        <Heading level={1}>Wave FE Challenge - Linda Zhao</Heading>
+      </Box>
       <Main pad="medium">
-        <UserDisplay users={users} handleToggleEdit={handleToggleEdit}/>
         {
-          showForm && <UserEditForm user={users[userToEdit]} handleEditSubmit={handleEditSubmit} handleCancelEdit={handleCancelEdit} />
+          showForm ? 
+          <UserEditForm user={users[userToEdit]} handleEditSubmit={handleEditSubmit} handleCancelEdit={handleCancelEdit} /> :
+          <UserDisplay users={users} handleToggleEdit={handleToggleEdit}/> 
         }
       </Main>
     </Grommet>
