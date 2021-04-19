@@ -47,4 +47,11 @@ describe('UserEditForm', () => {
     expect(submitStub).toBeCalledTimes(1)
     expect(submitStub).toBeCalledWith(CUSTOMERS_MOCK[1])
   })
+
+  /**
+   * Additional tests:
+   * it should show the correct hard-coded select options
+   * it should show an error is a field is submitted blank
+   * it should close the form after successful submission
+   */
 });
