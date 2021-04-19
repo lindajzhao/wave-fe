@@ -19,7 +19,7 @@ export const UserEditForm = ({ user, handleEditSubmit, handleCancelEdit }) => {
           <FormField label="Name" htmlFor="user-edit-name">
             <TextInput name="name" id="user-edit-name" required/>
           </FormField>
-          <FormField label="email" htmlFor="user-edit-email">
+          <FormField label="Email" htmlFor="user-edit-email">
             <TextInput name="email" id="user-edit-email" required/>
           </FormField>
           <FormField label="Channel" name="channel">
@@ -27,6 +27,7 @@ export const UserEditForm = ({ user, handleEditSubmit, handleCancelEdit }) => {
               options={["website","email","phone","word-of-mouth","other"]} 
               placeholder="Choose an option" 
               name="channel"
+              data-testid="user-edit-form-select"
               required
             />
           </FormField>
