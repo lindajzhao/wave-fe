@@ -5,7 +5,7 @@ export const UserEditForm = ({ user, handleEditSubmit, handleCancelEdit }) => {
     const [formValues, setFormValues] = useState(user);
 
     return (
-        <div>
+      <div data-testid="user-edit-form">
         <Heading level={2}>
         Edit Customer
         </Heading>
